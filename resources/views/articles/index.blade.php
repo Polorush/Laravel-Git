@@ -1,11 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    body{
+        background-color: black;
+    }
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <center>
+                <div class="panel-heading">Forum</div>
+                </center>
 
                 <div class="panel-body">
 
@@ -17,7 +24,7 @@
                 
                     @foreach ($articles as $article)
 
-                        <h1>{{ $article->title }} <small>{{ $article->likes()->count() }} <i class="fa fa-thumbs-up"></i></small></h1>
+                        <h1>{{ $article->title }} <small>{{ $article->likes()->count() }} <i class="fa fa-thumbs-up"> likes </i></small></h1>
 
                         <p>{{ $article->content }}</p>
                             <a href="{{route('article.show', ['id' => $article->id])}}">
@@ -40,7 +47,7 @@
                         </div>
             </div>
             <div class="panel panel-default">
-                <div class="panel-heading">My likes</div>
+                <div class="panel-heading">Mes likes</div>
 
                 <div class="panel-body">
                     @foreach (Auth::user()->likedArticles as $article)

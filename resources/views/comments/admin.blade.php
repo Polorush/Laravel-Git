@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+        .table{
+            background-color: white;
+        }
+
+        h2 {
+            color: white;
+        }
+
+        p {
+            color: white;
+        }
+</style>
+
     @if(session('success'))
         <div class="alert alert-success">
             {{session('success')}}

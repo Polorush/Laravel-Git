@@ -19,7 +19,7 @@
                         <p>{{$article->content}}</p>
                         <p>
                             @if($article->user)
-                                Utilisateur: {{$article->user->name}}
+                                Pseudo: {{$article->user->name}}
                             @else
                                 Pas d'utilisateur
                             @endif
@@ -62,7 +62,7 @@
                                         </div>
 
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary">Ajouter un commentaire</button>
+                                            <button type="submit" class="btn btn-primary">Ajouter un commentaire anonyme</button>
                                         </div>
 
                                     </form>

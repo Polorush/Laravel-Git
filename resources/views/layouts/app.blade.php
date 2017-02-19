@@ -8,11 +8,16 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>DarkNet</title>
+    <title>Forum Darknet</title>
 
     <!-- Styles -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
-
+    
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
