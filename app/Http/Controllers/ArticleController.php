@@ -13,6 +13,14 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function admin() 
+        {
+
+            $articles = Article::all();
+            return view('articles.admin', compact('articles'));
+        }
+
     public function index()
     {
         $articles = Article::paginate(5);
@@ -125,13 +133,13 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         $article = Article::find($id);
 
         $article->delete();
 
-        return redirect()->route('article.index')->with('success', 'Article supprimé');
+        return redirect()->back()->with('success', 'Article supprimé');
 
     }
 }

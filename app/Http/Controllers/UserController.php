@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-
     /**
      * Create a new controller instance.
      *
@@ -16,7 +15,6 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -27,4 +25,10 @@ class UserController extends Controller
         return view('users.index');
     }
 
+    public function delete(Request $request, $id) {
+        $comments = Comment::find($id);
+        $comments->body = $request->body;
+        $comments->delete();
+        return redirect()->route('users.index', [$comments->id])->with('success', 'Commentaire supprimé');
+    }
 }

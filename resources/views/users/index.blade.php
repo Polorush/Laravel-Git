@@ -5,6 +5,11 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            {{session('success')}}
+                        </div>
+                    @endif
                     <div class="panel-heading">Dashboard</div>
 
                     <div class="panel-body">
@@ -16,6 +21,7 @@
                         @empty
                             Rien
                         @endforelse
+
                     </div>
                 </div>
             </div>
